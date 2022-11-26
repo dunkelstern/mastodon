@@ -21,6 +21,7 @@ class Scheduler::VacuumScheduler
       media_attachments_vacuum,
       preview_cards_vacuum,
       backups_vacuum,
+      userprofile_vacuum,
       access_tokens_vacuum,
       feeds_vacuum,
     ]
@@ -40,6 +41,10 @@ class Scheduler::VacuumScheduler
 
   def backups_vacuum
     Vacuum::BackupsVacuum.new(content_retention_policy.backups_retention_period)
+  end
+
+  def userprofile_vacuum
+    Vacuum::UserProfileVacuum.new(content_retention_policy.userprofile_retention_period)
   end
 
   def access_tokens_vacuum

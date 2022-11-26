@@ -17,6 +17,10 @@ class ContentRetentionPolicy
     retention_period Setting.backups_retention_period
   end
 
+  def userprofile_retention_period
+    retention_period Setting.userprofile_retention_period
+  end
+
   private
 
   def retention_period(value)
